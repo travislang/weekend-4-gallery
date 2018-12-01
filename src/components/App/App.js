@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import './App.css';
+import GalleryList from '../GalleryList/GalleryList';
 
 class App extends Component {
     state = {
-        galleryItems: []
+        galleryList: []
     }
 
     // get all gallery images from server
@@ -12,7 +13,7 @@ class App extends Component {
         axios.get('/gallery')
         .then( res => {
             this.setState({
-                galleryItems: res.data
+                galleryList: res.data
             })
         })
         .catch( err => {
@@ -33,8 +34,9 @@ class App extends Component {
                     <h1 className="App-title">Gallery of my life</h1>
                 </header>
                 <br />
-                <p>Gallery goes here</p>
-                <img src="images/goat_small.jpg" />
+                <div className='container'>
+                    <GalleryList galleryList={this.state.galleryList} />
+                </div> 
             </div>
         );
     }

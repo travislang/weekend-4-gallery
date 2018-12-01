@@ -21,3 +21,10 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 250px);
+    gap: 100px;
+    justify-content: center;
+}
