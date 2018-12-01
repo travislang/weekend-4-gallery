@@ -1,18 +1,17 @@
 import React, { Component } from 'react';
+import GalleryItem from '../GalleryItem/GalleryItem';
 import './GalleryList.css';
 
 class GalleryList extends Component {
 
     render() {
-
+        
         let galleryList = this.props.galleryList.map( item => {
             return (
-                <div key={item.id}>
-                    <img src={item.path} alt='' />
-                </div>
+                <GalleryItem key={item.id} galleryItem={item} />
             )
         })
-        console.log( galleryList )
+        console.log( 'gal:', galleryList )
         return (
             galleryList
         );
