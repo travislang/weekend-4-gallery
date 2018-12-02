@@ -1,14 +1,37 @@
 import React, { Component } from 'react';
-// import './GalleryList.css';
+import './GalleryItem.css';
 
 class GalleryItem extends Component {
+    //set state init to true so picture renders
+    state = {
+        displayPic: true
+    }
+    //methods to toggle pics on click
+    showPic = () => {
+        this.setState({ displayPic: false })
+    }
+    hidePic = () => {
+        this.setState( {displayPic: true } )
+    }
 
     render() {
+        // set state as variable to use later
+        let displayPic = this.state.displayPic;
+        let displayDiv;
+
+        // check the state for which element to display
+        if ( displayPic ) {
+            displayDiv = <img onClick={this.showPic} src={this.props.galleryItem.path} alt="" />
+        } else {
+            displayDiv = <div className='descDiv' onClick={this.hidePic}>{this.props.galleryItem.description}</div>
+        }
+        
         return(
-            <div key={this.props.galleryItem.id}>
-                <img src={this.props.galleryItem.path} alt=""/>
+            <div className='imgDiv'>
+                {displayDiv}
             </div>
         )
     }
 }
+
 export default GalleryItem;
