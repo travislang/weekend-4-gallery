@@ -1,0 +1,16 @@
+.imgDiv {
+    width: 250px;
+    height: 250px;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+}
+
+.descDiv {
+    width: 250px;
+    height: 250px;
+}
