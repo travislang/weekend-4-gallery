@@ -31,7 +31,8 @@ class GalleryItem extends Component {
                 <div className='imgDiv'>
                     {displayDiv}
                 </div>
-                <button className='likeButton' onClick={this.props.addLike()}>Like</button>
+                <button className='likeButton' onClick={ () => this.props.addLike(this.props.galleryItem.id) }>Like</button>
+                <p>{this.props.galleryItem.likes} people like this</p>
             </div>
         )
     }
