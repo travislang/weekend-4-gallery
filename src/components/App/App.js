@@ -45,7 +45,7 @@ class App extends Component {
     }
     handleClick = () => {
         const newImage = this.state.image;
-        axios(`/gallery`, newImage)
+        axios.post(`/gallery`, newImage)
         .then( res => {
             this.getGallery();
             this.setState({

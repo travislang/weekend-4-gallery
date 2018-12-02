@@ -32,7 +32,16 @@ router.get('/', (req, res) => {
 
 // POST ROUTE
 router.post('/', ( req, res ) => {
-    console.log(req.body);
+    const image = req.body;
+    const sqlText = `INSERT INTO "images"("path", "description")
+    VALUES ($1, $2);`;
+    pool.query( sqlText, [image.path, image.desc] )
+    .then( result => {
+        res.sendStatus( 201 );
+    }).catch( err => {
+        console.log('error in POST route:', err );
+        res.sendStatus( 500 );
+    }); // end query
     
 }); // end POST route
 
