@@ -27,8 +27,11 @@ class GalleryItem extends Component {
         }
         
         return(
-            <div className='imgDiv'>
-                {displayDiv}
+            <div className='imgContainer'>
+                <div className='imgDiv'>
+                    {displayDiv}
+                </div>
+                <button className='likeButton' onClick={this.props.addLike()}>Like</button>
             </div>
         )
     }
