@@ -9,7 +9,7 @@ class App extends Component {
     }
 
     // get all gallery images from server
-    getGallery() {
+    getGallery = () => {
         axios.get('/gallery')
         .then( res => {
             this.setState({
@@ -20,14 +20,20 @@ class App extends Component {
             console.log( 'error in GET route:', err );
         });
     }
+    addLike = ( id ) => {
+        axios.put(`/gallery/like/${id}`)
+        .then( res => {
+            this.getGallery();
+        }).catch( err => {
+            console.log('error in post route:', err );
+        })
+    }
 
     componentDidMount() {
         this.getGallery();
     }
 
     render() {
-        console.log(this.state);
-        
         return (
             <div className="App">
                 <header className="App-header">
@@ -35,7 +41,7 @@ class App extends Component {
                 </header>
                 <br />
                 <div className='container'>
-                    <GalleryList galleryList={this.state.galleryList} />
+                    <GalleryList galleryList={this.state.galleryList} addLike={this.addLike} />
                 </div> 
             </div>
         );
