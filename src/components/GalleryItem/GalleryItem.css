@@ -5,6 +5,7 @@
 .imgDiv {
     width: 250px;
     height: 250px;
+    margin: 10px;
 }
 
 img {
@@ -21,7 +22,6 @@ img {
 
 .buttons{
     width: 150px;
-    margin: 3px;
 }
 
 .rightIcon {
