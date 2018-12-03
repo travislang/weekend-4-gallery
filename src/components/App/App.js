@@ -58,14 +58,20 @@ class App extends Component {
             console.log( 'error in POST route:', err );
         });
     }
+    handleDelete = (id) => {
+        axios.delete(`/gallery/${id}`)
+        .then( res => {
+            this.getGallery();
+        }).catch( err => {
+            console.log('error in delete route:', err );
+        });
+    }
 
     componentDidMount() {
         this.getGallery();
     }
 
     render() {
-        console.log(this.state.image);
-        
         return (
             <div className="App">
                 <header className="App-header">
@@ -78,7 +84,11 @@ class App extends Component {
                 />
                 <br />
                 <div className='container'>
-                    <GalleryList galleryList={this.state.galleryList} addLike={this.addLike} />
+                    <GalleryList 
+                        galleryList={this.state.galleryList} 
+                        addLike={this.addLike} 
+                        handleDelete={this.handleDelete}
+                        />
                 </div> 
             </div>
         );

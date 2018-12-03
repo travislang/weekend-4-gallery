@@ -42,7 +42,16 @@ router.post('/', ( req, res ) => {
         console.log('error in POST route:', err );
         res.sendStatus( 500 );
     }); // end query
-    
 }); // end POST route
+
+// DELETE ROUTE
+router.delete('/:id', ( req, res ) => {
+    const id = req.params.id;
+    const sqlText = `DELETE FROM "images"
+    WHERE "id" = $1;`;
+    pool.query( sqlText, [id] )
+    .then( result => res.send( result.rows ) )
+    .catch( err => res.sendStatus( 500 ) );
+})
 
 module.exports = router;

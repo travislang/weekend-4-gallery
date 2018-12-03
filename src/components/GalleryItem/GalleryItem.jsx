@@ -29,10 +29,10 @@ class GalleryItem extends Component {
         //same # of likes to a variable
         let likes = this.props.galleryItem.likes;
         // check how many people love the picture
-        if( likes == 0 ) {
+        if( likes === 0 ) {
             loveDesc = <p>No love yet</p>
         }
-        else if ( likes == 1 ) {
+        else if ( likes === 1 ) {
             loveDesc = <p>{likes} person loves this</p>
         }
         else {
@@ -44,6 +44,7 @@ class GalleryItem extends Component {
                 <div className='imgDiv'>
                     {displayDiv}
                 </div>
+                <button onClick={() => this.props.handleDelete(this.props.galleryItem.id) }>Remove</button>
                 <button className='likeButton' onClick={ () => this.props.addLike(this.props.galleryItem.id) }>Like</button>
                 {loveDesc}
             </div>
