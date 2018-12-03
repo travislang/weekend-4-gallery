@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
-import './GalleryItem.css';
 
+import Button from '@material-ui/core/Button';
+import DeleteIcon from '@material-ui/icons/Delete';
+import FavoriteIcon from '@material-ui/icons/FavoriteBorderOutlined';
+
+import './GalleryItem.css';
+import 'typeface-roboto';
 class GalleryItem extends Component {
     //set state init to true so picture renders
     state = {
@@ -44,9 +49,25 @@ class GalleryItem extends Component {
                 <div className='imgDiv'>
                     {displayDiv}
                 </div>
-                <button onClick={() => this.props.handleDelete(this.props.galleryItem.id) }>Remove</button>
-                <button className='likeButton' onClick={ () => this.props.addLike(this.props.galleryItem.id) }>Like</button>
-                {loveDesc}
+                <Button 
+                    className='buttons'
+                    variant="outlined" 
+                    color="secondary" 
+                    size='small'
+                    onClick={() => this.props.handleDelete(this.props.galleryItem.id) }>
+                    Remove
+                    <DeleteIcon className='rightIcon' />
+                </Button>
+                <Button 
+                    variant="outlined"
+                    color="primary" 
+                    className='likeButton buttons'
+                    size='small' 
+                    onClick={ () => this.props.addLike(this.props.galleryItem.id)}>
+                    Like
+                    <FavoriteIcon className='rightIcon' />
+                </Button>
+                    {loveDesc}
             </div>
         )
     }

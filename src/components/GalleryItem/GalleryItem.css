@@ -18,3 +18,12 @@ img {
     width: 250px;
     height: 250px;
 }
+
+.buttons{
+    width: 150px;
+    margin: 3px;
+}
+
+.rightIcon {
+    margin-left: 5px;
+}
