@@ -3,6 +3,9 @@
 }
 
 .App-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   background-color: #222;
   height: 70px;
   padding: 20px;
@@ -28,3 +31,20 @@
     gap: 100px;
     justify-content: center;
 }
+
+ul {
+    list-style-type: none;
+}
+li {
+    padding: 8px;
+    font-size: 1.25em;
+}
+a {
+    color: white;
+    text-decoration: none;
+}
+
+a:hover {
+    color: blue;
+}
+
